@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "1cc76bb5-0529-4092-84a4-4fca07feeda8",
+		"name": "KE API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/status",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
