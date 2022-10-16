@@ -22,6 +22,24 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "API Test DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/testdb",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"testdb"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
