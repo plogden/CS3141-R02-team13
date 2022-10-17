@@ -3,13 +3,14 @@
 Install npm
 Install yarn
 
-cd KE-API
-
-run 'yarn'
 
 # Starting backend
 
-run 'yarn server-dev:windows'
+Run
+```
+cd KE-API
+yarn server-dev:windows
+```
 
 # Testing
 
@@ -26,10 +27,12 @@ If response 200 then it's set up.
 Install gcloud cli - https://cloud.google.com/sdk/docs
 
 In powershell run the following:
+```
 gcloud init
 gcloud auth login
 cd KE-API
 .\cloud_sql_proxy.exe -instances=ke-sql:us-central1:myinstance=tcp:127.0.0.2:1433
+```
 
 Install SSMS - https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms
 
