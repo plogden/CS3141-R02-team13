@@ -1,7 +1,12 @@
 # Setup
 
-Install npm
-Install yarn
+Install node.js and yarn
+
+Chocolatey:
+```
+choco install nodejs
+choco install yarn
+```
 
 
 # Starting backend
