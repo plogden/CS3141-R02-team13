@@ -46,7 +46,7 @@ For Server Type, enter Database Engine
 For Server Name, enter 127.0.0.2 as the IP address of your SQL Server instance
 For Authentication, enter SQL Server Authentication
 For Login, enter sqlserver
-For Password, enter +1zk{kd+0g&>\7t{
+For Password, enter `+1zk{kd+0g&>\7t{`
 
 Click the Connect button.
 
