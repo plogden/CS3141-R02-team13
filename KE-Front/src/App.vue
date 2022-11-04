@@ -2,7 +2,7 @@
   <div id="app">
     <h2>Welcome to</h2>
     <h1>Keweenaw Exploration</h1>
-    <img src="C:\Users\hunte\OneDrive\Documents\GitHub\CS3141-R02-team13\KE-Front\src\assets\Keweenaw.jpg" alt="Picture of the Keweenaw"><br>
+    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F39%2F2014%2F07%2F20222311%2F102166846_w.jpg" alt="Picture of the Keweenaw"><br>
     <button id = "loc">Explore Locations</button>
   </div>
 </template>
@@ -30,7 +30,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 #loc {
   font-family: 'Kalam';
@@ -47,13 +49,14 @@ export default {
 }
 body {
   background: #6A8D65;
+  margin: 0;
+  padding: 0;
 }
 h2 {
   font-family: 'Kalam';
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
-  line-height: 77px;
   text-align: center;
   color: #FFFFFF;
 }
@@ -62,9 +65,11 @@ h1 {
   font-style: normal;
   font-weight: 400;
   font-size: 64px;
-  line-height: 102px;
   text-align: center;
 
   color: #FFFFFF;
+}
+img {
+  width: 50%
 }
 </style>
