@@ -50,5 +50,11 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	);
 
+	Locations.associate = function (models) {
+		Locations.hasOne(models.Location_Types, {
+			foreignKey: "location_id",
+		});
+	};
+
 	return Locations;
 };
