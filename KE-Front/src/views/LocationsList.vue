@@ -1,6 +1,57 @@
 <template>
   <div id="app">
-    <h1>Locations</h1>
+    <div style="padding-top: 2vh;">
+      <div class="top">Locations</div>
+    </div>
+    <input id="filter" type="text">
+    <table>
+      <tr>
+        <td>
+          <button id="location" @click="$router.push({ name: 'QuincyMine' })">
+            <img id="image" src="@/assets/quincyMine.jpg" alt="Quincy Mine">
+            <div class="name">Quincy Mine</div>
+            <div class="info">More Info</div>
+          </button>
+        </td>
+        <td>
+          <button id="location" @click="$router.push({ name: 'HighRockBay' })">
+            <img id="image" src="@/assets/highrockbay.jpg" alt="High Rock Bay">
+            <div class="name">High Rock Bay</div>
+            <div class="info">More Info</div>
+          </button>
+        </td>
+        <td>
+          <button id="location" @click="$router.push({ name: 'McLainStatePark' })">
+            <img id="image" src="@/assets/mclainPark.jpg" alt="McLain State Park">
+            <div class="name">McLain State Park</div>
+            <div class="info">More Info</div>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button id="location" @click="$router.push({ name: 'HungarianFalls' })">
+            <img id="image" src="@/assets/hungarianfalls.jpg" alt="Hungarian Falls">
+            <div class="name">Hungarian Falls</div>
+            <div class="info">More Info</div>
+          </button>
+        </td>
+        <td>
+          <button id="location" @click="$router.push({ name: 'QuincyDredge' })">
+            <img id="image" src="@/assets/dredge.webp" alt="Quincy Dredge Number Two">
+            <div class="name">Quincy Dredge Number Two</div>
+            <div class="info">More Info</div>
+          </button>
+        </td>
+        <td>
+          <button id="location" @click="$router.push({ name: 'GayStampSands' })">
+            <img id="image" src="@/assets/gaystampsands.jpg" alt="Gay Stamp Sands">
+            <div class="name">Gay Stamp Sands</div>
+            <div class="info">More Info</div>
+          </button>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -28,44 +79,85 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
-#loc {
+
+/* top bar with "locations" in it */
+.top {
+  display: flex;
+  background-color: #FFF;
   font-family: 'Kalam';
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 70px;
   text-align: center;
   color: #6A8D65;
   box-sizing: border-box;
   background: #FFFFFF;
   border-radius: 30px;
   border: none;
-  padding: 5px 15px 5px 15px;
+  padding: 0px 400px 0px 400px;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
-body {
-  background: #6A8D65;
-  margin: 0;
-  padding: 0;
+
+/* search bar */
+#filter {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 30px;
+  border: 3px solid #aaa;
+  transition: border 0.2s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: url(@/assets/searchicon.png);
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
 }
-h2 {
+#filter:focus {
+  border: 3px solid #555;
+}
+
+/* more info info style */
+.info{
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+/* name styling for places */
+.name{
+  font-size: 24px;
+  margin-top: -10px;
+}
+
+#image{
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#location{
+  width: 400px;
+  height: 260px;
   font-family: 'Kalam';
   font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
   text-align: center;
-  color: #FFFFFF;
-  margin-bottom: 0;
-  margin-top: 5%;
+  color: #FFF;
+  box-sizing: content-box;
+  background: #B1D2AC;
+  border-radius: 30px;
+  border: none;
+  padding: 0px 0px 55px 0px;
 }
-h1 {
-  font-family: 'Kalam';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  text-align: center;
-  margin: 0;
-  color: #FFFFFF;
+
+td {
+  padding: 5px;
 }
-img {
-  width: 30%
-}
+
 </style>

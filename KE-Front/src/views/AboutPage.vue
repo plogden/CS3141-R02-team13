@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <h2>Welcome to</h2>
-    <h1>Keweenaw Exploration</h1>
-    <img src="@/assets/Keweenaw.jpg" alt="Picture of the Keweenaw"><br>
-    <button id="loc" @click="$router.push({ name: 'LocationsList' })">Explore Locations</button>
-    <div style="padding-top: 10px;"></div>
-    <button id="about" @click="$router.push({ name: 'About' })">About this Site</button>
+    <h1>Locations</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage',
-  methods: {
-  },
+  name: 'LocationsList',
+
 }
 </script>
 
@@ -35,19 +29,6 @@ export default {
   justify-content: center;
 }
 #loc {
-  font-family: 'Kalam';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  text-align: center;
-  color: #6A8D65;
-  box-sizing: border-box;
-  background: #FFFFFF;
-  border-radius: 30px;
-  border: none;
-  padding: 5px 15px 5px 15px;
-}
-#about {
   font-family: 'Kalam';
   font-style: normal;
   font-weight: 400;
