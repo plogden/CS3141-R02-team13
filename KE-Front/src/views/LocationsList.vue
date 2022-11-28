@@ -5,48 +5,11 @@
     </div>
     <input id="filter" type="text">
     <table>
-      <tr>
-        <td>
-          <button id="location" @click="$router.push({ name: 'QuincyMine' })">
-            <img id="image" src="@/assets/quincyMine.jpg" alt="Quincy Mine">
-            <div class="name">Quincy Mine</div>
-            <div class="info">More Info</div>
-          </button>
-        </td>
-        <td>
-          <button id="location" @click="$router.push({ name: 'HighRockBay' })">
-            <img id="image" src="@/assets/highrockbay.jpg" alt="High Rock Bay">
-            <div class="name">High Rock Bay</div>
-            <div class="info">More Info</div>
-          </button>
-        </td>
-        <td>
-          <button id="location" @click="$router.push({ name: 'McLainStatePark' })">
-            <img id="image" src="@/assets/mclainPark.jpg" alt="McLain State Park">
-            <div class="name">McLain State Park</div>
-            <div class="info">More Info</div>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button id="location" @click="$router.push({ name: 'HungarianFalls' })">
-            <img id="image" src="@/assets/hungarianfalls.jpg" alt="Hungarian Falls">
-            <div class="name">Hungarian Falls</div>
-            <div class="info">More Info</div>
-          </button>
-        </td>
-        <td>
-          <button id="location" @click="$router.push({ name: 'QuincyDredge' })">
-            <img id="image" src="@/assets/dredge.webp" alt="Quincy Dredge Number Two">
-            <div class="name">Quincy Dredge Number Two</div>
-            <div class="info">More Info</div>
-          </button>
-        </td>
-        <td>
-          <button id="location" @click="$router.push({ name: 'GayStampSands' })">
-            <img id="image" src="@/assets/gaystampsands.jpg" alt="Gay Stamp Sands">
-            <div class="name">Gay Stamp Sands</div>
+      <tr v-for="locationCols of locationRows" :key="locationCols[0].id">
+        <td v-for="location of locationCols" :key="location.id">
+          <button id="location" @click="$router.push(`/location/${location.id}`)">
+            <img id="image" :src="require(`@/assets/locations/${location.id}.jpg`)">
+            <div class="name">{{location.name}}</div>
             <div class="info">More Info</div>
           </button>
         </td>
@@ -56,8 +19,35 @@
 </template>
 
 <script>
+import { Client } from '@/network'
+
 export default {
   name: 'LocationsList',
+  data: () => ({
+    locations: [],
+    locationRows: [],
+  }),
+  async beforeMount() {
+    try {
+      var response = await Client.get('/locations')
+      console.log(response)
+      this.locations = response.data.locations
+      // format locations into rows of 3
+      let row = -1
+      for (var i = 0; i < this.locations.length; i++) { 
+        let location = this.locations[i]
+        if(i%3==0){
+          row++;
+          this.locationRows[row] = []
+        }
+        this.locationRows[row].push(location)
+      }
+
+    } catch (error) {
+      console.log(error)
+      this.serverError = true
+    }
+  }
 
 }
 </script>
