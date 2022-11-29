@@ -34,6 +34,34 @@ const LocationController = {
 			locations,
 		});
 	},
+
+	// Returns location details
+	async getLocation(req, res) {
+		const id = req.query.id || "";
+
+		if (!id) {
+			return res.status(400).json({
+				message: "location id required",
+			});
+		}
+
+		const location = await db.Locations.findOne({
+			where: { id },
+			raw: true,
+			logging: console.log,
+			include: [
+				{
+					model: db.Location_Types,
+					attributes: [["name", "category"]],
+				},
+			],
+		});
+
+		return res.status(200).json({
+			status: "success",
+			location,
+		});
+	},
 };
 
 module.exports = LocationController;
