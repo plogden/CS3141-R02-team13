@@ -10,7 +10,7 @@ describe("Locations Requests", function () {
 			const response = await requester.get(`/locations`);
 
 			expect(response.status).to.eq(200);
-			expect(response.body.locations.length).to.gte(10);
+			expect(response.body.locations.length).to.gte(3);
 		});
 		it("can filter locations by category", async function () {
 			const response = await requester.get(`/locations?category=Parks`);
@@ -40,6 +40,18 @@ describe("Locations Requests", function () {
 
 			expect(response.status).to.eq(200);
 			expect(success).to.eq(true);
+		});
+	});
+	describe("GET /location", function () {
+		it("can get location details", async function () {
+			const response = await requester.get(`/location?id=1`);
+
+			expect(response.status).to.eq(200);
+		});
+		it("fails to get location details without id", async function () {
+			const response = await requester.get(`/location`);
+
+			expect(response.status).to.eq(400);
 		});
 	});
 });

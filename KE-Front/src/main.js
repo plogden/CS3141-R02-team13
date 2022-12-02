@@ -3,6 +3,7 @@ import { createApp } from "vue";
 import App from "@/App.vue";
 import HomePage from "@/views/HomePage.vue";
 import LocationsList from "@/views/LocationsList.vue";
+import LocationDetails from "@/views/LocationDetails.vue";
 import AboutPage from "@/views/AboutPage.vue";
 import McLainStatePark from "@/views/descriptions/McLainStatePark.vue";
 
@@ -23,6 +24,11 @@ const routes = [
     path: "/about",
     name: "About",
     component: AboutPage,
+  },
+  {
+    path: "/location/:id",
+    name: "LocationDetails",
+    component: LocationDetails,
   },
   {
     path: "/locations/mclainstatepark",
