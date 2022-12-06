@@ -3,7 +3,28 @@
     <div style="padding-top: 2vh;">
       <div class="top">Locations</div>
     </div>
-    <input id="filter" type="text">
+    <table>
+      <tr>
+        <td>
+          <button id="home" @click="$router.push(`/`)">Return Home</button>
+        </td>
+        <td>
+          <input class="filter" type="text">
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <button class="buttonfilter" id="all">All</button>
+          <button class="buttonfilter" id="mines">Mines</button>
+          <button class="buttonfilter" id="waterfalls">Waterfalls</button>
+          <button class="buttonfilter" id="mountains">Mountains</button>
+          <button class="buttonfilter" id="parks">Parks</button>
+          <button class="buttonfilter" id="hikes">Hikes</button>
+        </td>
+      </tr>
+    </table>
     <table>
       <tr v-for="locationCols of locationRows" :key="locationCols[0].id">
         <td v-for="location of locationCols" :key="location.id">
@@ -91,11 +112,26 @@ export default {
   user-select: none; /* Standard */
 }
 
+/* button to return home */
+#home{
+  width: 150px;
+  height: 40px;
+  font-size: 24px;
+  font-family: 'Kalam';
+  font-style: normal;
+  text-align: center;
+  color: #6A8D65;
+  box-sizing: content-box;
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
+  border: none;
+  padding: 0px 0px 0px 0px;
+}
+
 /* search bar */
-#filter {
-  width: 75%;
+.filter {
+  width: 800px;
   padding: 12px 20px;
-  margin: 8px 0;
   border-radius: 30px;
   border: 3px solid #aaa;
   transition: border 0.2s ease-in-out;
@@ -107,8 +143,25 @@ export default {
   background-repeat: no-repeat;
   padding-left: 40px;
 }
-#filter:focus {
+.filter:focus {
   border: 3px solid #555;
+}
+
+/* filter button styles */
+.buttonfilter{
+  width: 150px;
+  height: 40px;
+  font-size: 30px;
+  font-family: 'Kalam';
+  font-style: normal;
+  text-align: center;
+  color: #6A8D65;
+  box-sizing: content-box;
+  background: #FFF;
+  border-radius: 30px;
+  border: none;
+  padding: 0px 0px 0px 0px;
+  margin: -7px 5px 5px 5px;
 }
 
 /* more info info style */
@@ -130,6 +183,20 @@ export default {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+#filter{
+  width: 400px;
+  height: 260px;
+  font-family: 'Kalam';
+  font-style: normal;
+  text-align: center;
+  color: #FFF;
+  box-sizing: content-box;
+  background: #B1D2AC;
+  border-radius: 30px;
+  border: none;
+  padding: 0px 0px 55px 0px;
 }
 
 #location{
