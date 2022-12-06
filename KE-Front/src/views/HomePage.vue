@@ -2,7 +2,7 @@
   <div id="app">
     <h2>Welcome to</h2>
     <h1>Keweenaw Exploration</h1>
-    <img src="@/assets/Keweenaw.jpg" alt="Picture of the Keweenaw"><br>
+    <img id="img1" src="@/assets/Keweenaw.jpg" alt="Picture of the Keweenaw"><br>
     <button id="loc" @click="$router.push({ name: 'LocationsList' })">Explore Locations</button>
     <div style="padding-top: 10px;"></div>
     <button id="about" @click="$router.push({ name: 'About' })">About this Site</button>
@@ -84,7 +84,7 @@ h1 {
   margin: 0;
   color: #FFFFFF;
 }
-img {
+#img1 {
   width: 30%
 }
 </style>
