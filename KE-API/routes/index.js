@@ -15,4 +15,7 @@ router.get("/testdb", TestController.testDB);
 // Get the list of locations
 router.get("/locations", LocationController.getLocations);
 
+// Get location details
+router.get("/location", LocationController.getLocation);
+
 module.exports = router;
