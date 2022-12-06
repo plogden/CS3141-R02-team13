@@ -9,23 +9,24 @@
           <button id="home" @click="$router.push(`/`)">Return Home</button>
         </td>
         <td>
-          <input class="filter" type="text">
+          <input class="filter" @input="getLocations" v-model="search" type="text">
         </td>
       </tr>
     </table>
     <table>
       <tr>
         <td>
-          <button class="buttonfilter" id="all">All</button>
-          <button class="buttonfilter" id="mines">Mines</button>
-          <button class="buttonfilter" id="waterfalls">Waterfalls</button>
-          <button class="buttonfilter" id="mountains">Mountains</button>
-          <button class="buttonfilter" id="parks">Parks</button>
-          <button class="buttonfilter" id="hikes">Hikes</button>
+          <button class="buttonfilter" id="all" @click="filterLocations('all')">All</button>
+          <button class="buttonfilter" id="mines" @click="filterLocations('mines')">Mines</button>
+          <button class="buttonfilter" id="waterfalls" @click="filterLocations('waterfalls')">Waterfalls</button>
+          <button class="buttonfilter" id="mountains" @click="filterLocations('mountains')">Mountains</button>
+          <button class="buttonfilter" id="parks" @click="filterLocations('parks')">Parks</button>
+          <button class="buttonfilter" id="hikes" @click="filterLocations('hikes')">Hikes</button>
         </td>
       </tr>
     </table>
     <table>
+      <div v-if="locationRows.length">
       <tr v-for="locationCols of locationRows" :key="locationCols[0].id">
         <td v-for="location of locationCols" :key="location.id">
           <button id="location" @click="$router.push(`/location/${location.id}`)">
@@ -35,6 +36,10 @@
           </button>
         </td>
       </tr>
+      </div>
+      <div v-else>
+        <h2> No results found</h2>
+      </div>
     </table>
   </div>
 </template>
@@ -47,27 +52,56 @@ export default {
   data: () => ({
     locations: [],
     locationRows: [],
+    category: '',
+    search: '',
   }),
-  async beforeMount() {
-    try {
-      var response = await Client.get('/locations')
-      console.log(response)
-      this.locations = response.data.locations
-      // format locations into rows of 3
-      let row = -1
-      for (var i = 0; i < this.locations.length; i++) { 
-        let location = this.locations[i]
-        if(i%3==0){
-          row++;
-          this.locationRows[row] = []
-        }
-        this.locationRows[row].push(location)
+  methods: {
+    filterLocations(filter) {
+      if(filter === 'all') {
+        this.category = ''
+      } else {
+        this.category = filter
       }
+      this.getLocations()
+  },
+  async getLocations(){
+    try {
+        let query = ''
+        if(this.category || this.search) {
+          query += '?'
+          if(this.category) {
+            query += 'category=' + this.category
+          }
+          if(this.search) {
+            query += 'search=' + this.search
+          }
+        }
 
-    } catch (error) {
-      console.log(error)
-      this.serverError = true
+        this.locations = []
+        this.locationRows = []
+
+        var response = await Client.get('/locations' + query)
+        console.log(response)
+        this.locations = response.data.locations
+        // format locations into rows of 3
+        let row = -1
+        for (var i = 0; i < this.locations.length; i++) { 
+          let location = this.locations[i]
+          if(i%3==0){
+            row++;
+            this.locationRows[row] = []
+          }
+          this.locationRows[row].push(location)
+        }
+
+      } catch (error) {
+        console.log(error)
+        this.serverError = true
+      }
     }
+  },
+  async beforeMount() {
+    this.getLocations()
   }
 
 }
@@ -216,5 +250,14 @@ export default {
 td {
   padding: 5px;
 }
+
+button {
+  cursor: pointer;
+ 
+}
+
+button:hover {
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+  }
 
 </style>
