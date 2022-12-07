@@ -6,10 +6,13 @@
     <table>
       <tr>
         <td>
-          <button id="home" @click="$router.push(`/`)">Return Home</button>
+          <button class="nav" id="home" @click="$router.push(`/`)">Return Home</button>
         </td>
         <td>
           <input class="filter" @input="getLocations" v-model="search" type="text">
+        </td>
+        <td>
+          <button class="nav" @click="clearSearch()">Clear</button>
         </td>
       </tr>
     </table>
@@ -64,6 +67,10 @@ export default {
       }
       this.getLocations()
   },
+  clearSearch() {
+    this.search = "";
+    this.filterLocations('all');
+  },
   async getLocations(){
     try {
         let query = ''
@@ -102,8 +109,7 @@ export default {
   },
   async beforeMount() {
     this.getLocations()
-  }
-
+  },
 }
 </script>
 
@@ -128,8 +134,7 @@ export default {
 /* top bar with "locations" in it */
 .top {
   display: flex;
-  background-color: #FFF;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 70px;
@@ -139,7 +144,7 @@ export default {
   background: #FFFFFF;
   border-radius: 30px;
   border: none;
-  padding: 0px 400px 0px 400px;
+  padding: 0 400px 0 400px;
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -147,11 +152,11 @@ export default {
 }
 
 /* button to return home */
-#home{
+.nav{
   width: 150px;
   height: 40px;
   font-size: 24px;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   text-align: center;
   color: #6A8D65;
@@ -159,13 +164,12 @@ export default {
   background: rgb(255, 255, 255);
   border-radius: 30px;
   border: none;
-  padding: 0px 0px 0px 0px;
+  padding: 0 0 0 0;
 }
 
 /* search bar */
 .filter {
   width: 800px;
-  padding: 12px 20px;
   border-radius: 30px;
   border: 3px solid #aaa;
   transition: border 0.2s ease-in-out;
@@ -175,7 +179,7 @@ export default {
   background-image: url(@/assets/searchicon.png);
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  padding-left: 40px;
+  padding: 12px 20px 12px 40px;
 }
 .filter:focus {
   border: 3px solid #555;
@@ -186,7 +190,7 @@ export default {
   width: 150px;
   height: 40px;
   font-size: 30px;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   text-align: center;
   color: #6A8D65;
@@ -223,7 +227,7 @@ export default {
 #filter{
   width: 400px;
   height: 260px;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   text-align: center;
   color: #FFF;
@@ -237,7 +241,7 @@ export default {
 #location{
   width: 400px;
   height: 260px;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   text-align: center;
   color: #FFF;
