@@ -206,7 +206,8 @@ export default {
 
 /* name styling for places */
 .name{
-  font-size: 24px;
+  width: 100%;
+  font-size: 160%;
   margin-top: -10px;
 }
 
