@@ -3,7 +3,18 @@
     <div style="padding-top: 2vh;">
       <div id="top">Locations</div>
     </div>
-    <div id="title">{{location.name}}</div>
+    <div id="title">
+      <table>
+        <tr>
+          <td>
+            <button id="back" @click="$router.push(`/locations`)">Back</button>
+          </td>
+          <td>
+            {{location.name}}
+          </td>
+        </tr>
+      </table>
+    </div>
     <table>
       <tr>
         <td>
@@ -193,5 +204,21 @@ export default {
 #map{
   padding-top: 50px;
   text-align: right;
+}
+#back{
+  width: 150px;
+  height: 40px;
+  font-size: 24px;
+  font-family: 'Kalam';
+  font-style: normal;
+  text-align: center;
+  color: #6A8D65;
+  box-sizing: content-box;
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
+  border: none;
+  padding: 0px 0px 0px 0px;
+  margin-top: 10px;
+  margin-left: -820px;
 }
 </style>
