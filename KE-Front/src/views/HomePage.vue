@@ -23,6 +23,10 @@ export default {
   src: local("Kalam"),
   url(@/assets/Kalam-Regular.ttf) format("truetype");
 }
+button{
+  padding: 5px;
+  margin: 10px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,7 +39,7 @@ export default {
   justify-content: center;
 }
 #loc {
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -48,7 +52,7 @@ export default {
   padding: 5px 15px 5px 15px;
 }
 #about {
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -66,7 +70,7 @@ body {
   padding: 0;
 }
 h2 {
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -76,7 +80,7 @@ h2 {
   margin-top: 5%;
 }
 h1 {
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
