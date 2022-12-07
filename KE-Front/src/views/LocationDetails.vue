@@ -34,7 +34,7 @@
       </tr>
       <tr>
         <td>
-          <img id="image" :src="require(`@/assets/locations/${location.id}.jpg`)">
+          <img id="image" :src="require(`@/assets/locations/${location.id}.jpg`)" alt="Image of location">
         </td>
         <td>
           <iframe id="map" :src="`https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=${location.coordinates.coordinates[0]},${location.coordinates.coordinates[1]}+(${location.name})&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed`" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -54,7 +54,7 @@ export default {
   }),
   async beforeMount() {
     try {
-      var response = await Client.get(`/location?id=${this.$route.params.id}`)
+      const response = await Client.get(`/location?id=${this.$route.params.id}`);
       console.log(response)
       this.location = response.data.location
 
@@ -87,8 +87,7 @@ export default {
 /* top bar with "locations" in it */
 #top {
   display: flex;
-  background-color: #FFF;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 70px;
@@ -98,7 +97,7 @@ export default {
   background: #FFFFFF;
   border-radius: 30px;
   border: none;
-  padding: 0px 400px 0px 400px;
+  padding: 0 400px 0 400px;
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -106,7 +105,7 @@ export default {
 }
 #title{
   display: flex;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
@@ -122,7 +121,7 @@ export default {
 }
 #type{
   display: flex;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -138,7 +137,7 @@ export default {
 }
 #latitude{
   display: flex;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -154,7 +153,7 @@ export default {
 }
 #vehicle{
   display: flex;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -170,7 +169,7 @@ export default {
 }
 #longitude{
   display: flex;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -186,7 +185,7 @@ export default {
 }
 #description{
   display: flex;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -209,7 +208,7 @@ export default {
   width: 150px;
   height: 40px;
   font-size: 24px;
-  font-family: 'Kalam';
+  font-family: 'Kalam',serif;
   font-style: normal;
   text-align: center;
   color: #6A8D65;
@@ -217,7 +216,7 @@ export default {
   background: rgb(255, 255, 255);
   border-radius: 30px;
   border: none;
-  padding: 0px 0px 0px 0px;
+  padding: 0 0 0 0;
   margin-top: 10px;
   margin-left: -820px;
 }
